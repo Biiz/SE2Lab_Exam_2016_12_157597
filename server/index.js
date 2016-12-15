@@ -267,6 +267,50 @@ app.post('/addStudent', function(request, response)
 
 });
 
+
+//Funzione che prende in input una stringa e restituisce una lista di studenti
+app.post('/searchByMark', function(request, response) 
+{	
+	var headers = {};
+	headers["Access-Control-Allow-Origin"] = "*";
+	headers["Access-Control-Allow-Methods"] = "POST, GET, PUT, DELETE, OPTIONS";
+	headers["Access-Control-Allow-Credentials"] = false;
+	headers["Access-Control-Max-Age"] = '86400'; // 24 hours
+	headers["Access-Control-Allow-Headers"] = "X-Requested-With, X-HTTP-Method-Override, Content-Type, Accept";
+	headers["Content-Type"] = "application/json";
+    //variabile che contiene il criterio di ricerca
+	var mark;
+	
+	//check body and parameters
+	if ( typeof request.body !== 'undefined' && request.body){
+		if ( typeof request.body.mark !== 'undefined' && request.body.mark ){
+			  mark = request.body.mark;
+            }
+		else 
+			mark = "not defined";
+	}
+	else{
+		mark = "body undefined";
+	}
+    //se il campo è non è indefinito
+    if (mark!="not defined" && mark!="body undefined"){
+		//aceptable input
+		//create the mark object
+		var mark_to_search = {
+			mark: mark
+		}
+		
+		var data = studentManager.getList();
+		
+		response.end(JSON.stringify(data));
+		
+		
+	}
+     response.writeHead(200, headers);  
+
+});
+
+
 app.listen(app.get('port'), function() {
   console.log('Node app is running on port', app.get('port'));
 });

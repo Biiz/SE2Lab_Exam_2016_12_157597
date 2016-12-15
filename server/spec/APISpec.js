@@ -78,3 +78,16 @@ describe("Test /searchStudent", function() {
 
 
 });
+
+
+// Test for /searchByMark
+describe("Test /searchByMark", function() {
+    it("returns status code 200", function(done) {
+        request.get(
+            base_url + "searchByMark/", 
+            function(error, response, body) {
+                expect(response.statusCode).toBe(200);
+                done();
+            });
+    }); 
+});

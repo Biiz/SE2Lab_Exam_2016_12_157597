@@ -1,0 +1,26 @@
+{
+  "name": "se2_157597",
+  "version": "1.0.0",
+  "description": "Link to Heroku:",
+  "main": "index.js",
+  "scripts": {
+    "test": "./node_modules/.bin/jasmine spec",
+    "start": "index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Biiz/SE2Lab_Exam_2016_12_157597.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Biiz/SE2Lab_Exam_2016_12_157597/issues"
+  },
+  "homepage": "https://github.com/Biiz/SE2Lab_Exam_2016_12_157597#readme",
+  "dependencies": {
+    "body-parser": "^1.15.2",
+    "cors": "^2.8.1",
+    "express": "^4.14.0",
+    "util": "^0.10.3"
+  }
+}
